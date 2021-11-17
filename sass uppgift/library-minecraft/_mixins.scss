@@ -1,0 +1,80 @@
+//Sätter jhöjden och bredden till 100 viewport höjder/bredder 
+@mixin fullscreen {
+    width: 100vw;
+    height: 100vh;
+}
+// centerar i mitten med hjälp av flexbox 
+@mixin adjustCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+// placering med hjälp av flexbox (Tar ett argument som man kan mata in)
+@mixin adjust($position) {
+    display: flex;
+    justify-content: $position;
+    align-items: center;
+}
+//Skapar en låda i valfri färg med rundade hörnen och skuggor. Har även padding och höjd bredd
+@mixin box($color) {
+    box-shadow: $myShadow;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 55px;
+    width: 35vw;
+    height: 30vh;
+    padding: 25px;
+    background-color: $color;
+    @include adjustCenter;
+    flex-direction: column;
+    text-align: center;
+}
+//Sätter bakgrundbilden till argumentets url
+@mixin bg($url) {
+    background-image: url($url);
+    background-size: cover;
+}
+//Mixin för en stor rubrik, tar in färg som argument sätter även en specefik font och storlek på fontent
+@mixin xlHeading($color) {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-bottom: 5px;
+    color: $color;
+    font-size: 5vh;
+}
+//Mixin för en  ännu stor rubrik, tar in färg som argument sätter även en specefik font och storlek på fontent. Denna rubriken har även en fade in animation
+
+@mixin xxlHeading($color) {
+    font-family: 'Open Sans';
+    font-size: 30vh;
+    color: $color;
+    animation: fadeIn linear 7s;
+    -webkit-animation: fadeIn linear 7s;
+    -moz-animation: fadeIn linear 7s;
+    -o-animation: fadeIn linear 7s;
+    -ms-animation: fadeIn linear 7s;
+    @keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-moz-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-webkit-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-o-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-ms-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+}
+

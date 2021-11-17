@@ -1,0 +1,103 @@
+//Importera nödvindga scss filer
+@import '_mixins.scss';
+@import '_variables.scss';
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+
+//SE _mixins.scss för en förklaring av alla olika typer av mixins använda...
+
+
+//Egen Scrollbar
+body::-webkit-scrollbar {
+    width: 16px;
+}
+ 
+body::-webkit-scrollbar-track {
+    background-color: $white;
+    border-radius: 100px; 
+}
+ 
+body::-webkit-scrollbar-thumb {
+    background-color: $scrollbar;
+    border-radius: 100px;
+}
+
+//Override, för att få bort all standrad margin och padding även gömma x axis scrollbar
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden
+}
+
+//Sektion 1
+.minecraftWrapper {
+    @include fullscreen;
+}
+.minecraftBox {
+    @include box($white);
+}
+
+//Sektion 2
+#firstw {
+    //Inkludera mixins
+    @include adjustCenter;
+    @include bg("../images/minecraft.jpg")
+}
+#firstb {
+    h1 {
+        //Inkluder mixin
+        @include xxlHeading($white);
+        background-image: url('./img/ores.png') 
+    }   
+}
+
+//Sektion 3
+#secondw {
+    //Inkludera mixins
+    @include adjust(flex-start);
+    @include bg("../images/tree.png")
+}
+#secondb {
+    h2 {
+        //Inkludera mixin
+        @include xlHeading($black);
+    }
+}
+
+#thirdw {
+    //Inkluderar mixins
+    @include adjust(flex-end);
+    @include bg("../images/ores.png")
+}
+#thirdb {
+    h2 {
+        //Inkluder mixin
+        @include xlHeading($black);
+    }
+}
+
+//Sketion 4
+#fourthw {
+    //Inkludera mixin
+    @include adjust(flex-start);
+    @include bg("../images/house.jpg")
+}
+#fourthb {
+    h2 {
+        //Inkludera mixin
+        @include xlHeading($black);
+    }
+}
+
+
+//Sektion 5
+#fifthw {
+    //Inkluderar mixins
+    @include adjust(flex-end);
+    @include bg("../images/cave.jpg")
+}
+#fifthb {
+    h2 {
+        //Inklyudera mixin
+        @include xlHeading($black);
+    }
+}
